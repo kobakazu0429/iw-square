@@ -8,6 +8,7 @@
     "lint": "eslint --ext .ts,.tsx ./src --fix"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "next": "9.4.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
