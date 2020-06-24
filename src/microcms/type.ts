@@ -26,5 +26,5 @@ export interface Work {
   image_url: string;
   tags: Tag[];
   creator: Creator;
-  is_published: boolean;
+  status: "public" | "pending" | "private";
 }
