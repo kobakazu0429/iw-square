@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from "axios";
+import axios, { AxiosInstance, AxiosError } from "axios";
 
 interface Options {
   baseUrl: string;
@@ -40,23 +40,26 @@ export class MicroCMSRestClient {
     return res.data;
   }
 
-  public async post<T, U>({ endpoint, data }: PostOptions<U>) {
-    const res = await this.microCms.post<T>(endpoint, data);
-    return res.data;
+  public async post<T, U>({ endpoint, data }: PostOptions<T>) {
+    const res = await this.microCms
+      .post<U>(endpoint, data)
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      .catch((e: AxiosError<U>) => e.response!);
+    return res;
   }
 }
 
 // TODO:ちゃんとチェックする
 if (
-  !process.env.MICROCMS_URL ||
-  !process.env.MICROCMS_API_KEY ||
-  !process.env.MICROCMS_WRITE_API_KEY
+  !process.env.NEXT_PUBLIC_MICROCMS_URL ||
+  !process.env.NEXT_PUBLIC_MICROCMS_API_KEY ||
+  !process.env.NEXT_PUBLIC_MICROCMS_WRITE_API_KEY
 ) {
   throw Error("not set microcms config to env");
 }
 
 export const restClient = new MicroCMSRestClient({
-  baseUrl: process.env.MICROCMS_URL,
-  apiKey: process.env.MICROCMS_API_KEY,
-  writeApiKey: process.env.MICROCMS_WRITE_API_KEY,
+  baseUrl: process.env.NEXT_PUBLIC_MICROCMS_URL,
+  apiKey: process.env.NEXT_PUBLIC_MICROCMS_API_KEY,
+  writeApiKey: process.env.NEXT_PUBLIC_MICROCMS_WRITE_API_KEY,
 });
