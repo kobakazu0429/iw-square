@@ -1,9 +1,11 @@
 import React from "react";
 import App from "next/app";
 import { Normalize } from "styled-normalize";
+import { ToastContainer } from "react-toastify";
 import { ThemeProvider } from "../theme/ThemeProvider";
 import { GlobalStyle } from "../theme/GlobalStyle";
 import "semantic-ui-css/semantic.min.css";
+import "react-toastify/dist/ReactToastify.css";
 import "dayjs/locale/ja";
 
 export default class MyApp extends App {
@@ -24,6 +26,7 @@ export default class MyApp extends App {
       <>
         <Normalize />
         <GlobalStyle />
+        <ToastContainer />
         <ThemeProvider themeName="default">
           <Component {...pageProps} />
         </ThemeProvider>

@@ -31,13 +31,11 @@ class TagsClient {
     const res = await this.client.post<{ tag: string }, { message: string }>({
       endpoint: ENDPOINT,
       data: {
-        tag: "",
+        tag,
       },
     });
 
-    console.log("[res]", res);
-
-    if (res.status === 201 && res.data.message === "Created") {
+    if (res.status === 201) {
       return {
         ok: true,
         message: "タグの新規作成に成功しました。",

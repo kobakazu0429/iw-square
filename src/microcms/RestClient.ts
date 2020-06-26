@@ -1,27 +1,33 @@
 import axios, { AxiosInstance, AxiosError } from "axios";
 
-interface Options {
+interface RestClientOptions {
   baseUrl: string;
   apiKey: string;
   writeApiKey: string;
 }
 
-// see also: https://microcms.io/docs/content-api/get-list-contents
-interface GetOptions {
+interface CommonOptions {
   endpoint: string;
+}
+
+// see also: https://microcms.io/docs/content-api/get-list-contents
+interface GetOptions extends CommonOptions {
   params?: {
     limit?: number;
     depth?: number;
   };
 }
 
-interface PostOptions<T> {
-  endpoint: string;
+interface PostOptions<T> extends CommonOptions {
   data: T;
 }
 
+// interface DeleteOptions extends CommonOptions {
+//   contentId: string;
+// }
+
 export class MicroCMSRestClient {
-  constructor({ baseUrl, apiKey, writeApiKey }: Options) {
+  constructor({ baseUrl, apiKey, writeApiKey }: RestClientOptions) {
     this.microCms = axios.create({
       baseURL: baseUrl,
       headers: {
@@ -47,6 +53,11 @@ export class MicroCMSRestClient {
       .catch((e: AxiosError<U>) => e.response!);
     return res;
   }
+
+  // TODO: MicroCMSがDELETE/PUTに対応したら処理できるようにする
+  // public async delete({ endpoint, contentId }: DeleteOptions) {
+  //   const res = await this.microCms.delete(endpoint);
+  // }
 }
 
 // TODO:ちゃんとチェックする
