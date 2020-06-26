@@ -17,6 +17,7 @@ export const AddTagForm: FC = (_props) => {
     const res = await tagsClient.createTag(newTag);
     if (res.ok) {
       toast(`🚀 ${res.message}`);
+      setNewTag("");
     } else {
       toast.error(res.message);
     }
