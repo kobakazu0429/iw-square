@@ -1,26 +1,31 @@
 import React, { FC } from "react";
 import styled from "styled-components";
+import { Image as CloudinaryImage, Transformation } from "cloudinary-react";
 import { Tag } from "./Tag";
+import { Creator, Tag as TagType } from "../microcms/type";
 
 interface Props {
-  productImage: string;
+  publicId: string;
   // creatorId: number;
   title: string;
-  creator: string;
-  tags: string[];
+  creator: Creator;
+  tags: TagType[];
 }
 
-export const WorkCard: FC<Props> = ({ productImage, title, creator, tags }) => {
+export const WorkCard: FC<Props> = ({ publicId, title, creator, tags }) => {
   return (
     <Wrapper>
-      <Img src={productImage}></Img>
+      <Img cloudName="iw-square" publicId={publicId}>
+        <Transformation crop="fill" height="200" width="200" />
+      </Img>
+
       <Content>
         <CreatorName>{title}</CreatorName>
         <br />
-        <CreatorName>{creator}</CreatorName>
+        <CreatorName>{creator.name}</CreatorName>
         <br />
-        {tags.map((tag) => (
-          <Tag tag={tag} key={tag} />
+        {tags.map(({ tag, id }) => (
+          <Tag tag={tag} key={id} />
         ))}
       </Content>
     </Wrapper>
@@ -37,7 +42,7 @@ const Wrapper = styled.div`
   vertical-align: top;
 `;
 
-const Img = styled.img`
+const Img = styled(CloudinaryImage)`
   border-radius: 5px 5px 0 0;
   max-width: 100%;
   height: auto;

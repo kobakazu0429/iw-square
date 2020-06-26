@@ -2,6 +2,8 @@ import React, { useState, useCallback } from "react";
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
 import styled from "styled-components";
 import { ParsedUrlQuery } from "querystring";
+import { worksClient } from "../microcms/works";
+import { Work } from "../microcms/type";
 
 import { Header } from "../layouts/Header";
 import { WorkCard } from "../components/WorkCard";
@@ -9,25 +11,6 @@ import { WorkCard } from "../components/WorkCard";
 import { TextField } from "../components/TextField";
 import { Tag } from "../components/Tag";
 import { HeroArea } from "../components/HeroArea";
-
-const data = [
-  {
-    productImage:
-      "https://drive.google.com/uc?export=view&id=17xyQXfX9sdvWLp3gUZ3O6vnUoi7qJi2k",
-    tags: ["レーザーカッター", "Fusion360", "Arduino", "Raspberry Pi"],
-    title: "test02",
-    creator: "秦 幹太",
-    objectID: "5063173001",
-  },
-  {
-    productImage:
-      "https://drive.google.com/uc?export=view&id=1cOjOtUhL_KsefhfXTm0sFYPUNgTvlvot",
-    tags: ["レーザーカッター", "3Dプリンター", "C/C++", "Python"],
-    title: "test01",
-    creator: "非公開",
-    objectID: "50631721",
-  },
-];
 
 const allTags = [
   "レーザーカッター",
@@ -57,6 +40,7 @@ const allTags = [
 
 interface ServerSideProps {
   query: ParsedUrlQuery;
+  works: Work[];
 }
 
 type Props = ServerSideProps;
@@ -144,13 +128,13 @@ export default (props: Props) => {
         ))}
       </Controller>
       <Container>
-        {data.map(({ productImage, creator, tags, title }) => (
+        {props.works.map(({ title, creator, tags, image_url, id }) => (
           <WorkCard
             title={title}
-            productImage={productImage}
+            publicId={image_url}
             creator={creator}
             tags={tags}
-            key={productImage}
+            key={id}
           />
         ))}
 
@@ -170,11 +154,15 @@ export default (props: Props) => {
   );
 };
 
-export function getServerSideProps({
+export async function getServerSideProps({
   query,
-}: GetServerSidePropsContext): GetServerSidePropsResult<ServerSideProps> {
+}: GetServerSidePropsContext): Promise<
+  GetServerSidePropsResult<ServerSideProps>
+> {
+  const works = await worksClient.fetchAllWorks();
   return {
     props: {
+      works,
       query,
     },
   };
