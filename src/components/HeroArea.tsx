@@ -7,7 +7,6 @@ interface Props {
 }
 
 export const HeroArea: FC<Props> = ({ text, backgroundImage }) => {
-  console.log(backgroundImage);
   return (
     <>
       <StyledHeroArea backgroundImage={backgroundImage}>

@@ -27,7 +27,7 @@ export default (props: Props) => {
 export async function getServerSideProps(
   _ctx: GetServerSidePropsContext
 ): Promise<GetServerSidePropsResult<ServerSideProps>> {
-  const res = await worksClient.fetchAllWorks();
+  const res = await worksClient.fetchAllWorks({ onlyPublic: false });
   return {
     props: {
       works: res,

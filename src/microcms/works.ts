@@ -16,8 +16,21 @@ class WorksClient {
   }
   private resuClient: MicroCMSRestClient;
 
-  public async fetchAllWorks(): Promise<Work[]> {
-    const res = await this.resuClient.get<Response>({ endpoint: ENDPOINT });
+  public async fetchAllWorks({
+    onlyPublic = true,
+  }: {
+    onlyPublic?: boolean;
+  } = {}): Promise<Work[]> {
+    const onlyPublicFilter = "status[equals]public";
+    const filters = onlyPublic ? onlyPublicFilter : "";
+
+    const res = await this.resuClient.get<Response>({
+      endpoint: ENDPOINT,
+      params: {
+        filters,
+        limit: 100,
+      },
+    });
     return res.contents;
   }
 }

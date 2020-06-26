@@ -57,8 +57,6 @@ export default (props: Props) => {
   // const [allTags, setAllTags] = useState<any[]>([]);
   const [searchWord, setSearchWord] = useState<string>("");
 
-  console.log("props:", props);
-
   // const getAllTags = useCallback(() => {
   //   worksIndex.search<WorksResponse>("").then((res) => {
   //     const uniqueTags = Array.from(

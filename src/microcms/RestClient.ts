@@ -15,6 +15,7 @@ interface GetOptions extends CommonOptions {
   params?: {
     limit?: number;
     depth?: number;
+    filters?: string;
   };
 }
 
