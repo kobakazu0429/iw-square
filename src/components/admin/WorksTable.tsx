@@ -6,7 +6,7 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Button,
+  // Button,
 } from "semantic-ui-react";
 import { Work } from "../../microcms/type";
 import { toJST } from "../../utils/toJST";
@@ -30,9 +30,9 @@ const WorkTableRow: FC<{ work: Work }> = (props) => {
       </TableCell>
       <TableCell>{toJST(props.work.createdAt)}</TableCell>
       <TableCell>{toJST(props.work.updatedAt)}</TableCell>
-      <TableCell>
+      {/* <TableCell>
         <Button icon="edit" content="編集する" labelPosition="left" />
-      </TableCell>
+      </TableCell> */}
     </TableRow>
   );
 };
@@ -50,7 +50,7 @@ export const WorksTable: FC<{ works: Work[] }> = (props) => {
           <TableHeaderCell>状態</TableHeaderCell>
           <TableHeaderCell>作成日</TableHeaderCell>
           <TableHeaderCell>更新日</TableHeaderCell>
-          <TableHeaderCell></TableHeaderCell>
+          {/* <TableHeaderCell></TableHeaderCell> */}
         </TableRow>
       </TableHeader>
 

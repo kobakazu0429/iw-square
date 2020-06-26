@@ -6,7 +6,7 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Button,
+  // Button,
   Image,
 } from "semantic-ui-react";
 import { Image as CloudinaryImage, Transformation } from "cloudinary-react";
@@ -36,9 +36,9 @@ const CreatorTableRow: FC<{ creator: Creator }> = (props) => {
           {props.creator.facebook_id}
         </a>
       </TableCell>
-      <TableCell>
+      {/* <TableCell>
         <Button icon="edit" content="編集する" labelPosition="left" />
-      </TableCell>
+      </TableCell> */}
     </TableRow>
   );
 };
@@ -52,7 +52,7 @@ export const CreatorsTable: FC<{ creators: Creator[] }> = (props) => {
           <TableHeaderCell>名前</TableHeaderCell>
           <TableHeaderCell>Twitter</TableHeaderCell>
           <TableHeaderCell>Facebook</TableHeaderCell>
-          <TableHeaderCell></TableHeaderCell>
+          {/* <TableHeaderCell></TableHeaderCell> */}
         </TableRow>
       </TableHeader>
 
