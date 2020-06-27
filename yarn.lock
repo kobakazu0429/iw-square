@@ -1160,6 +1160,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-image-crop@^8.1.2":
+  version "8.1.2"
+  resolved "https://registry.yarnpkg.com/@types/react-image-crop/-/react-image-crop-8.1.2.tgz#9c16d6b0b577a63a854a1a895180cc76800e2988"
+  integrity sha512-K6mbw1Bj/CeePnRa78E3v3gIn/EeqlCof5IVU9IPLdzMjOsf+ccn3Qv/vagsH/6eANGgoDz4hG41eJ2kggiuuw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-native@*":
   version "0.62.13"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.62.13.tgz#c688c5ae03e426f927f7e1fa1a59cd067f35d1c2"
@@ -2154,6 +2161,11 @@ cloudinary-react@^1.5.1:
     cloudinary-core "^2.9.0"
     prop-types "^15.6.2"
 
+clsx@^1.0.4:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
+  integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
+
 coa@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/coa/-/coa-2.0.2.tgz#43f6c21151b4ef2bf57187db0d73de229e3e7ec3"
@@ -2304,6 +2316,11 @@ core-js-pure@^3.0.0:
   version "3.6.5"
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.6.5.tgz#c79e75f5e38dbc85a662d91eea52b8256d53b813"
   integrity sha512-lacdXOimsiD0QyNf9BC/mxivNJ/ybBGJXQFKzRekp1WTHoVUWsUHEn+2T8GJAzzIhyOuXA+gOxCVN3l+5PLPUA==
+
+core-js@^3.4.2:
+  version "3.6.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
+  integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
 
 core-util-is@~1.0.0:
   version "1.0.2"
@@ -5421,6 +5438,15 @@ react-dom@^16.13.0:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.19.1"
+
+react-image-crop@^8.6.4:
+  version "8.6.4"
+  resolved "https://registry.yarnpkg.com/react-image-crop/-/react-image-crop-8.6.4.tgz#51289c22baf7d116575102e885f879af71376388"
+  integrity sha512-5buyhUg9slzW+QGvN2dbpGSI1VqPxxmfEwe19TZXUB7LjW5+ljZOnrTSsteIzeBqmz6ngVucc8l+OrwgcDOSNg==
+  dependencies:
+    clsx "^1.0.4"
+    core-js "^3.4.2"
+    prop-types "^15.7.2"
 
 react-is@16.13.1, react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.6:
   version "16.13.1"

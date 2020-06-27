@@ -6,6 +6,7 @@ import { CloudinaryContext } from "cloudinary-react";
 import { ThemeProvider } from "../theme/ThemeProvider";
 import { GlobalStyle } from "../theme/GlobalStyle";
 import "semantic-ui-css/semantic.min.css";
+import "react-image-crop/dist/ReactCrop.css";
 import "react-toastify/dist/ReactToastify.css";
 import "dayjs/locale/ja";
 

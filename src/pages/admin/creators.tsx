@@ -6,6 +6,7 @@ import { Creator } from "../../microcms/type";
 import { CreatorsTable } from "../../components/admin/CreatorsTable";
 import { creatorsClient } from "../../microcms/creators";
 import { AdminMessage } from "../../components/admin/AdminMessage";
+import { NewCreateFormModal } from "../../components/admin/NewCreatorForm";
 
 interface ServerSideProps {
   creators: Creator[];
@@ -19,9 +20,10 @@ export default (props: Props) => {
   return (
     <AdminContainer>
       <div>
-        <h1>works</h1>
+        <h1>creators</h1>
         <AdminMessage />
         <Divider />
+        <NewCreateFormModal />
         <Divider />
         <CreatorsTable creators={props.creators} />
       </div>
