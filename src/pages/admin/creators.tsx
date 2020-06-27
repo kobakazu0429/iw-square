@@ -1,9 +1,11 @@
 import React from "react";
-import { AdminContainer } from "../../components/admin/Container";
+import { Divider } from "semantic-ui-react";
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
+import { AdminContainer } from "../../components/admin/Container";
 import { Creator } from "../../microcms/type";
 import { CreatorsTable } from "../../components/admin/CreatorsTable";
 import { creatorsClient } from "../../microcms/creators";
+import { AdminMessage } from "../../components/admin/Message";
 
 interface ServerSideProps {
   creators: Creator[];
@@ -18,6 +20,9 @@ export default (props: Props) => {
     <AdminContainer>
       <div>
         <h1>works</h1>
+        <AdminMessage />
+        <Divider />
+        <Divider />
         <CreatorsTable creators={props.creators} />
       </div>
     </AdminContainer>

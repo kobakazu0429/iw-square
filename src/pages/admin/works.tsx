@@ -1,9 +1,11 @@
 import React from "react";
-import { AdminContainer } from "../../components/admin/Container";
+import { Divider } from "semantic-ui-react";
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
+import { AdminContainer } from "../../components/admin/Container";
 import { worksClient } from "../../microcms/works";
 import { Work } from "../../microcms/type";
 import { WorksTable } from "../../components/admin/WorksTable";
+import { AdminMessage } from "../../components/admin/Message";
 
 interface ServerSideProps {
   works: Work[];
@@ -18,6 +20,9 @@ export default (props: Props) => {
     <AdminContainer>
       <div>
         <h1>works</h1>
+        <AdminMessage />
+        <Divider />
+        <Divider />
         <WorksTable works={props.works} />
       </div>
     </AdminContainer>
