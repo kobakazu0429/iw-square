@@ -1,9 +1,13 @@
-import React, { FC, useState, useCallback, useRef } from "react";
+import React, { FC, useState, useCallback, useRef, useEffect } from "react";
 import { Button, Form, Input, Image, Modal } from "semantic-ui-react";
 import ReactCrop, { Crop } from "react-image-crop";
+import { toast } from "react-toastify";
 import { creatorsClient } from "../../microcms/creators";
+import { cloudinaryRestClient } from "../../cloudinary/RestClient";
 
-const IconEditor: FC = (_props) => {
+const IconEditor: FC<{
+  setImage: React.Dispatch<React.SetStateAction<string>>;
+}> = (props) => {
   const [upImg, setUpImg] = useState<FileReader["result"]>(null);
   // const [upImgAspect, setUpImgAspect] = useState(1);
   const imgRef = useRef<HTMLImageElement | null>(null);
@@ -93,6 +97,7 @@ const IconEditor: FC = (_props) => {
       crop.height
     );
     setStatus("done");
+    props.setImage(imgRef.current.src);
   }, [imgRef, completedCrop]);
 
   return (
@@ -145,18 +150,45 @@ export const NewCreateFormModal: FC = (_props) => {
   }, []);
 
   const [name, setName] = useState("");
-  const [icon, setIcon] = useState("");
+  const [iconData, setIconData] = useState("");
+  const [iconPublicId, setIconPublicId] = useState("");
   const [twitterId, setTwitterId] = useState("");
   const [facebookId, setFacebookId] = useState("");
 
-  const handleSubmit = useCallback(() => {
-    creatorsClient.createCreator({
+  useEffect(() => {
+    (async () => {
+      if (iconData) {
+        toast("画像のアップロードを開始しました。");
+        const res = await cloudinaryRestClient.uploadImage({ data: iconData });
+        if (res.ok) {
+          setIconPublicId(res.publicId);
+        }
+
+        toast(res.message);
+      }
+    })();
+  }, [iconData]);
+
+  const handleSubmit = useCallback(async () => {
+    const res = await creatorsClient.createCreator({
       name,
-      icon: "",
+      icon: iconPublicId,
       twitter_id: twitterId,
       facebook_id: facebookId,
     });
-  }, [name, twitterId, facebookId]);
+
+    toast(res.message);
+  }, [name, iconPublicId, twitterId, facebookId]);
+
+  useEffect(() => {
+    if (name && iconPublicId) {
+      setSubmitable(true);
+    } else {
+      setSubmitable(false);
+    }
+  }, [name, iconPublicId]);
+
+  const [submitable, setSubmitable] = useState(false);
 
   return (
     <Modal
@@ -169,7 +201,7 @@ export const NewCreateFormModal: FC = (_props) => {
     >
       <Modal.Header>クリエイターの新規作成</Modal.Header>
       <Modal.Content image>
-        <IconEditor />
+        <IconEditor setImage={setIconData} />
 
         <Modal.Description style={{ paddingLeft: "2em" }}>
           <Form>
@@ -207,7 +239,7 @@ export const NewCreateFormModal: FC = (_props) => {
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleClose}>キャンセル</Button>
-        <Button positive onClick={handleSubmit}>
+        <Button positive onClick={handleSubmit} disabled={!submitable}>
           登録する
         </Button>
       </Modal.Actions>
