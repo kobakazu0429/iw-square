@@ -5,7 +5,7 @@ import { AdminContainer } from "../../components/admin/Container";
 import { Creator } from "../../microcms/type";
 import { CreatorsTable } from "../../components/admin/CreatorsTable";
 import { creatorsClient } from "../../microcms/creators";
-import { AdminMessage } from "../../components/admin/Message";
+import { AdminMessage } from "../../components/admin/AdminMessage";
 
 interface ServerSideProps {
   creators: Creator[];

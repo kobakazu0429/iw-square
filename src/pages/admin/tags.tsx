@@ -6,7 +6,7 @@ import { Tag } from "../../microcms/type";
 import { tagsClient } from "../../microcms/tags";
 import { TagsTable } from "../../components/admin/TagsTable";
 import { AddTagForm } from "../../components/admin/TagForm";
-import { AdminMessage } from "../../components/admin/Message";
+import { AdminMessage } from "../../components/admin/AdminMessage";
 
 interface ServerSideProps {
   tags: Tag[];

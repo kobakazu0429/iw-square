@@ -5,7 +5,7 @@ import { AdminContainer } from "../../components/admin/Container";
 import { worksClient } from "../../microcms/works";
 import { Work } from "../../microcms/type";
 import { WorksTable } from "../../components/admin/WorksTable";
-import { AdminMessage } from "../../components/admin/Message";
+import { AdminMessage } from "../../components/admin/AdminMessage";
 
 interface ServerSideProps {
   works: Work[];
