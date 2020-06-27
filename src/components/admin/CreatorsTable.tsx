@@ -20,7 +20,7 @@ const CreatorTableRow: FC<{ creator: Creator }> = (props) => {
       <TableCell>{props.creator.id}</TableCell>
       <TableCell>
         <Image avatar>
-          <CloudinaryImage cloudName="iw-square" publicId={props.creator.icon}>
+          <CloudinaryImage publicId={props.creator.icon}>
             <Transformation crop="fill" height="100" width="100" />
           </CloudinaryImage>
         </Image>

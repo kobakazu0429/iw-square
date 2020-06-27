@@ -2,6 +2,7 @@ import React from "react";
 import App from "next/app";
 import { Normalize } from "styled-normalize";
 import { ToastContainer } from "react-toastify";
+import { CloudinaryContext } from "cloudinary-react";
 import { ThemeProvider } from "../theme/ThemeProvider";
 import { GlobalStyle } from "../theme/GlobalStyle";
 import "semantic-ui-css/semantic.min.css";
@@ -28,7 +29,9 @@ export default class MyApp extends App {
         <GlobalStyle />
         <ToastContainer />
         <ThemeProvider themeName="default">
-          <Component {...pageProps} />
+          <CloudinaryContext cloudName="iw-square">
+            <Component {...pageProps} />
+          </CloudinaryContext>
         </ThemeProvider>
       </>
     );

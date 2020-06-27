@@ -15,7 +15,7 @@ interface Props {
 export const WorkCard: FC<Props> = ({ publicId, title, creator, tags }) => {
   return (
     <Wrapper>
-      <Img cloudName="iw-square" publicId={publicId}>
+      <Img publicId={publicId}>
         <Transformation crop="fill" height="200" width="200" />
       </Img>
 
