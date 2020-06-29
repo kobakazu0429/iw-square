@@ -20,7 +20,7 @@ const WorkTableRow: FC<{ work: Work }> = (props) => {
       <TableCell>{props.work.title}</TableCell>
       <TableCell>{props.work.image_url}</TableCell>
       <TableCell>{props.work.tags.map((v) => v.tag).join(", ")}</TableCell>
-      <TableCell>{props.work.creator?.name ?? "no name"}</TableCell>
+      <TableCell>{props.work.creator.name}</TableCell>
       <TableCell>
         {props.work.status === "public"
           ? "公開中"

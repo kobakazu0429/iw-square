@@ -15,7 +15,7 @@ export const ImageEditor: FC<{
   const imgRef = useRef<HTMLImageElement | null>(null);
   const previewCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const [crop, setCrop] = useState<Crop>(() => {
-    const aspect = props.cropOption?.aspect;
+    const aspect = props.cropOption && props.cropOption.aspect;
 
     let width = 100;
     let height: number | undefined = undefined;
@@ -147,7 +147,7 @@ export const ImageEditor: FC<{
               crop={crop}
               onChange={(c) => setCrop(c)}
               onComplete={(c) => setCompletedCrop(c)}
-              circularCrop={props.cropOption?.circularCrop}
+              circularCrop={props.cropOption && props.cropOption.circularCrop}
               style={{ width: 300 }}
             />
           </div>
