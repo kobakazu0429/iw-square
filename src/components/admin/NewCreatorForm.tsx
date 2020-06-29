@@ -126,7 +126,7 @@ const IconEditor: FC<{
               onChange={(c) => setCrop(c)}
               onComplete={(c) => setCompletedCrop(c)}
               circularCrop
-              style={{ maxWidth: 300 }}
+              style={{ width: 300 }}
             />
           </div>
           <Button floated="right" onClick={onSubmit}>
