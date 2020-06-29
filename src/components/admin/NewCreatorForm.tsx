@@ -70,7 +70,7 @@ export const NewCreateFormModal: FC = (_props) => {
       <Modal.Content image>
         <ImageEditor
           onEdited={setIconData}
-          placeholderImage="/icons/default-creator.jpg"
+          placeholderImage="/images/default-creator.jpg"
           cropOption={{
             circularCrop: true,
             aspect: 1,
