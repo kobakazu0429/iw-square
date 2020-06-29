@@ -8,6 +8,21 @@ interface Response {
   limit: number;
 }
 
+interface CreatePayload
+  extends Weaken<
+    Omit<Work, "id" | "createdAt" | "updatedAt" | "publishedAt">,
+    "tags" | "creator"
+  > {
+  tags: string[];
+  creator: string;
+}
+
+interface CreateResponse {
+  ok: boolean;
+  message: string;
+  creator: CreatePayload;
+}
+
 const ENDPOINT = "/works";
 
 class WorksClient {
@@ -32,6 +47,30 @@ class WorksClient {
       },
     });
     return res.contents;
+  }
+
+  public async createWork(data: CreatePayload): Promise<CreateResponse> {
+    console.log(data);
+
+    const res = await this.resuClient.post<CreatePayload, string>({
+      endpoint: ENDPOINT,
+      data,
+    });
+
+    if (res.status === 201) {
+      return {
+        ok: true,
+        message: "作品の新規作成に成功しました。",
+        creator: data,
+      };
+    }
+
+    return {
+      ok: false,
+      message:
+        "予期しないエラーが発生しました。システム管理者に連絡してください。",
+      creator: data,
+    };
   }
 }
 
