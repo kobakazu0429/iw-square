@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
 import styled from "styled-components";
 import { ParsedUrlQuery } from "querystring";
@@ -8,19 +8,19 @@ import { Work } from "../microcms/type";
 import { Header } from "../layouts/Header";
 import { WorkCard } from "../components/WorkCard";
 // import { MobileWorkCard } from "../components/MobileWorkCard";
-import { TextField } from "../components/TextField";
-import { Tag } from "../components/Tag";
+// import { TextField } from "../components/TextField";
+// import { Tag } from "../components/Tag";
 import { HeroArea } from "../components/HeroArea";
 
-const allTags = [
-  "レーザーカッター",
-  "Fusion360",
-  "Arduino",
-  "Raspberry Pi",
-  "3Dプリンター",
-  "C/C++",
-  "Python",
-];
+// const allTags = [
+//   "レーザーカッター",
+//   "Fusion360",
+//   "Arduino",
+//   "Raspberry Pi",
+//   "3Dプリンター",
+//   "C/C++",
+//   "Python",
+// ];
 
 // interface WorksResponse {
 //   productImage: string;
@@ -55,7 +55,7 @@ export default (props: Props) => {
 
   // const [data, setData] = useState<any[]>([]);
   // const [allTags, setAllTags] = useState<any[]>([]);
-  const [searchWord, setSearchWord] = useState<string>("");
+  // const [searchWord, setSearchWord] = useState<string>("");
 
   // const getAllTags = useCallback(() => {
   //   worksIndex.search<WorksResponse>("").then((res) => {
@@ -99,17 +99,17 @@ export default (props: Props) => {
   //   });
   // }, [searchWord, queryTag]);
 
-  const getAllWorks = useCallback(() => {
-    // setSearchWord("");
-    // history.push(`/works`);
-  }, []);
+  // const getAllWorks = useCallback(() => {
+  // setSearchWord("");
+  // history.push(`/works`);
+  // }, []);
 
   return (
     <>
       <Header />
       <HeroArea text="Works" backgroundImage="images/works.jpg" />
 
-      <Controller>
+      {/* <Controller>
         <SearchLabel>検索</SearchLabel>
 
         <TextField
@@ -124,7 +124,7 @@ export default (props: Props) => {
         {allTags.map((tag) => (
           <Tag tag={tag} key={tag} />
         ))}
-      </Controller>
+      </Controller> */}
       <Container>
         {props.works.map(({ title, creator, tags, image_url, id }) => (
           <WorkCard
@@ -171,38 +171,38 @@ const Container = styled.div`
   padding: 50px calc((100vw - 260px * 6) / 2);
 `;
 
-const Controller = styled.div`
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+// const Controller = styled.div`
+//   padding: 20px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// `;
 
-const SearchLabel = styled.div`
-  width: 60px;
-  margin-right: -15px;
-`;
+// const SearchLabel = styled.div`
+//   width: 60px;
+//   margin-right: -15px;
+// `;
 
-const Divider = styled.div`
-  width: 1px;
-  height: 20px;
-  margin: 0 20px;
-  background: ${({ theme }) => theme.color.divider};
-`;
+// const Divider = styled.div`
+//   width: 1px;
+//   height: 20px;
+//   margin: 0 20px;
+//   background: ${({ theme }) => theme.color.divider};
+// `;
 
-const AllButton = styled.button`
-  position: relative;
-  display: inline-block;
-  padding: 0.25em 0;
-  text-decoration: none;
+// const AllButton = styled.button`
+//   position: relative;
+//   display: inline-block;
+//   padding: 0.25em 0;
+//   text-decoration: none;
 
-  &::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 1px;
-    top: 100%;
-    left: 0;
-    background: ${({ theme }) => theme.color.text.primary};
-  }
-`;
+//   &::before {
+//     position: absolute;
+//     content: "";
+//     width: 100%;
+//     height: 1px;
+//     top: 100%;
+//     left: 0;
+//     background: ${({ theme }) => theme.color.text.primary};
+//   }
+// `;
