@@ -1,17 +1,20 @@
 import React, { FC } from "react";
 import styled from "styled-components";
+import { Image as CloudinaryImage, Transformation } from "cloudinary-react";
 
 interface Props {
   // creatorId: number;
-  avatorUrl: string;
+  iconPublicId: string;
   name: string;
   skills: string[];
 }
 
-export const Creator: FC<Props> = ({ avatorUrl, name, skills }) => {
+export const Creator: FC<Props> = ({ iconPublicId, name, skills }) => {
   return (
     <Wrapper>
-      <Avator src={avatorUrl} />
+      <Avator publicId={iconPublicId}>
+        <Transformation crop="fill" height="200" width="200" />
+      </Avator>
       <Content>
         <Line>{name}</Line>
         {skills.map((skill) => (
@@ -30,7 +33,7 @@ const Wrapper = styled.div`
   justify-content: flex-start;
 `;
 
-const Avator = styled.img`
+const Avator = styled(CloudinaryImage)`
   border-radius: 50%;
   height: 120px;
 `;
