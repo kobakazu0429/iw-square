@@ -135,18 +135,24 @@ export default (props: Props) => {
             key={id}
           />
         ))}
-
-        {/* <MobileDesign> */}
-        {/* {data.map(({ productImage, creator, tags, title }) => (
-            <MobileWorkCard
-              title={title}
-              productImage={productImage}
-              creator={creator}
-              tags={tags}
-              key={productImage}
-            />
-          ))} */}
-        {/* </MobileDesign> */}
+        {props.works.map(({ title, creator, tags, image_url, id }) => (
+          <WorkCard
+            title={title}
+            publicId={image_url}
+            creator={creator}
+            tags={tags}
+            key={id}
+          />
+        ))}
+        {props.works.map(({ title, creator, tags, image_url, id }) => (
+          <WorkCard
+            title={title}
+            publicId={image_url}
+            creator={creator}
+            tags={tags}
+            key={id}
+          />
+        ))}
       </Container>
     </>
   );
@@ -169,6 +175,18 @@ export async function getServerSideProps({
 const Container = styled.div`
   width: 100%;
   padding: 50px calc((100vw - 260px * 6) / 2);
+
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  margin: -2.5px;
+
+  &:after {
+    content: "";
+    flex-grow: 999999999;
+    min-width: 300px;
+    height: 0;
+  }
 `;
 
 // const Controller = styled.div`
