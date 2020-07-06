@@ -12,16 +12,6 @@ import { WorkCard } from "../components/WorkCard";
 // import { Tag } from "../components/Tag";
 import { HeroArea } from "../components/HeroArea";
 
-// const allTags = [
-//   "レーザーカッター",
-//   "Fusion360",
-//   "Arduino",
-//   "Raspberry Pi",
-//   "3Dプリンター",
-//   "C/C++",
-//   "Python",
-// ];
-
 // interface WorksResponse {
 //   productImage: string;
 //   tags: string[];
