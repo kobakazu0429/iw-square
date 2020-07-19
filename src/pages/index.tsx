@@ -18,6 +18,7 @@ export default () => {
             src={createCloudinaryUrl({
               publicId: "safe-is-first_tcgr8w",
             })}
+            alt="私たちは安全を第一に考えています！"
           />
         </HeroArea>
       </Container>
