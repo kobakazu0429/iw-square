@@ -4,13 +4,13 @@ import styled from "styled-components";
 import { ParsedUrlQuery } from "querystring";
 import { worksClient } from "../microcms/works";
 import { Work } from "../microcms/type";
-
 import { Header } from "../layouts/Header";
 import { WorkCard } from "../components/WorkCard";
 // import { MobileWorkCard } from "../components/MobileWorkCard";
 // import { TextField } from "../components/TextField";
 // import { Tag } from "../components/Tag";
 import { HeroArea } from "../components/HeroArea";
+import { createCloudinaryUrl } from "../cloudinary/util";
 
 // interface WorksResponse {
 //   productImage: string;
@@ -34,6 +34,11 @@ interface ServerSideProps {
 }
 
 type Props = ServerSideProps;
+
+const HERO_AREA_IMAGE_PATH = createCloudinaryUrl({
+  height: 450,
+  publicId: "works_vrmvat.jpg",
+});
 
 // eslint-disable-next-line react/display-name
 export default (props: Props) => {
@@ -97,7 +102,7 @@ export default (props: Props) => {
   return (
     <>
       <Header />
-      <HeroArea text="Works" backgroundImage="images/works.jpg" />
+      <HeroArea text="Works" backgroundImage={HERO_AREA_IMAGE_PATH} />
 
       {/* <Controller>
         <SearchLabel>検索</SearchLabel>

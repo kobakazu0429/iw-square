@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { Image as CloudinaryImage } from "cloudinary-react";
+import useLazyloadRef from "use-lazyload-ref";
 import { Tag } from "./Tag";
 import { Creator, Tag as TagType } from "../microcms/type";
+import { createCloudinaryUrl } from "../cloudinary/util";
 
 interface Props {
   publicId: string;
@@ -11,34 +12,43 @@ interface Props {
   tags: TagType[];
 }
 
-export const WorkCard: FC<Props> = ({ publicId, title, creator, tags }) => {
-  return (
-    <Wrapper>
-      <Img publicId={publicId} />
+const IMAGE_HEIGHT = 300;
 
-      <Content>
-        <WorkInfo>
-          {title} / {creator.name}
-        </WorkInfo>
-        <br />
-        {tags.map(({ tag, id }) => (
-          <Tag tag={tag} key={id} />
-        ))}
-      </Content>
-    </Wrapper>
+export const WorkCard: FC<Props> = ({ publicId, title, creator, tags }) => {
+  const [ref, hasLoaded] = useLazyloadRef();
+  return (
+    <>
+      <Wrapper>
+        <Img
+          ref={ref}
+          data-src={createCloudinaryUrl({ height: IMAGE_HEIGHT, publicId })}
+        />
+        {hasLoaded && (
+          <Content>
+            <WorkInfo>
+              {title} / {creator.name}
+            </WorkInfo>
+            <br />
+            {tags.map(({ tag, id }) => (
+              <Tag tag={tag} key={id} />
+            ))}
+          </Content>
+        )}
+      </Wrapper>
+    </>
   );
 };
 
 const Wrapper = styled.div`
   position: relative;
-  height: 300px;
+  height: ${IMAGE_HEIGHT}px;
   margin: 3px;
   flex-grow: 1;
   position: relative;
 `;
 
-const Img = styled(CloudinaryImage)`
-  height: 300px;
+const Img = styled.img`
+  height: ${IMAGE_HEIGHT}px;
   object-fit: cover;
   max-width: 100%;
   min-width: 100%;
