@@ -5,8 +5,9 @@ const FOOTER_HEIGHT = 60;
 
 export const Footer: FC = () => (
   <FooterStyle>
-    <span>&copy; 2020 -</span>&emsp;
-    <a href="https://twitter.com/kobakazu0429">kobakazu0429</a>
+    <span>
+      &copy; 2020 - <a href="https://twitter.com/kobakazu0429">kobakazu0429</a>
+    </span>
   </FooterStyle>
 );
 
