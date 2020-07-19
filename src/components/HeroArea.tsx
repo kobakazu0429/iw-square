@@ -35,17 +35,11 @@ const StyledHeroArea = styled.div<{ backgroundImage: string }>`
     color: #fff;
     text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.5);
   }
-`;
 
-// const StyledMobileHeroArea = styled.div<{ backgroundImage: string }>`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background-image: url(${({ backgroundImage }) => backgroundImage});
-//   height: 30vh;
-//   h1 {
-//     font-size: 70px;
-//     color: #fff;
-//     text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.5);
-//   }
-// `;
+  @media only screen and (max-width: 480px) {
+    height: 90px;
+    h1 {
+      font-size: 40px;
+    }
+  }
+`;

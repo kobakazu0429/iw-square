@@ -46,6 +46,12 @@ const Wrapper = styled.div`
   margin: 3px;
   flex-grow: 1;
   position: relative;
+
+  @media only screen and (max-width: 480px) {
+    margin: 5px 0;
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const Img = styled.img`
@@ -54,6 +60,10 @@ const Img = styled.img`
   max-width: 100%;
   min-width: 100%;
   vertical-align: bottom;
+  @media only screen and (max-width: 480px) {
+    object-fit: contain;
+    height: auto;
+  }
 `;
 
 const Content = styled.div`

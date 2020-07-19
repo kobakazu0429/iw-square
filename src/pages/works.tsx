@@ -165,6 +165,11 @@ const Container = styled.div`
     min-width: 300px;
     height: 0;
   }
+
+  @media only screen and (max-width: 480px) {
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 // const Controller = styled.div`

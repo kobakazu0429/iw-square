@@ -12,6 +12,7 @@ export const PublicPageTemplate: FC<Props> = ({ pageTitle, children }) => (
   <>
     <Head>
       <title>{pageTitle}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Head>
     <Wrapper>
       <Header />
