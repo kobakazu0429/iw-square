@@ -1,17 +1,12 @@
 import React from "react";
-import Head from "next/head";
 import styled from "styled-components";
-import { Header } from "../layouts/Header";
 import { createCloudinaryUrl } from "../cloudinary/util";
+import { PublicPageTemplate } from "../layouts/PublicPageTemplate";
 
 // eslint-disable-next-line react/display-name
 export default () => {
   return (
-    <>
-      <Head>
-        <title>インキュベーションスクエア</title>
-      </Head>
-      <Header />
+    <PublicPageTemplate pageTitle="インキュベーションスクエア">
       <Container>
         <HeroArea>
           <HeroImg
@@ -22,7 +17,7 @@ export default () => {
           />
         </HeroArea>
       </Container>
-    </>
+    </PublicPageTemplate>
   );
 };
 

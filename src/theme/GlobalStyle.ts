@@ -10,7 +10,14 @@ export const GlobalStyle = createGlobalStyle`
   html,
   body {
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    height: 100%
   };
+
+  body > div:first-child,
+  div#__next,
+  div#__next > div:first-child {
+    height: 100%;
+  }
 
   ul, li {
     margin: 0;

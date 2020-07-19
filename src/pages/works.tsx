@@ -1,12 +1,11 @@
 import React from "react";
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
-import Head from "next/head";
 import styled from "styled-components";
 import { ParsedUrlQuery } from "querystring";
 import { worksClient } from "../microcms/works";
 import { Work } from "../microcms/type";
-import { Header } from "../layouts/Header";
 import { WorkCard } from "../components/WorkCard";
+import { PublicPageTemplate } from "../layouts/PublicPageTemplate";
 // import { MobileWorkCard } from "../components/MobileWorkCard";
 // import { TextField } from "../components/TextField";
 // import { Tag } from "../components/Tag";
@@ -101,14 +100,11 @@ export default (props: Props) => {
   // }, []);
 
   return (
-    <>
-      <Head>
-        <title>インキュベーションスクエア - Works</title>
-      </Head>
-      <Header />
-      <HeroArea text="Works" backgroundImage={HERO_AREA_IMAGE_PATH} />
+    <PublicPageTemplate pageTitle="インキュベーションスクエア - Works">
+      <>
+        <HeroArea text="Works" backgroundImage={HERO_AREA_IMAGE_PATH} />
 
-      {/* <Controller>
+        {/* <Controller>
         <SearchLabel>検索</SearchLabel>
 
         <TextField
@@ -124,36 +120,19 @@ export default (props: Props) => {
           <Tag tag={tag} key={tag} />
         ))}
       </Controller> */}
-      <Container>
-        {props.works.map(({ title, creator, tags, image_url, id }) => (
-          <WorkCard
-            title={title}
-            publicId={image_url}
-            creator={creator}
-            tags={tags}
-            key={id}
-          />
-        ))}
-        {props.works.map(({ title, creator, tags, image_url, id }) => (
-          <WorkCard
-            title={title}
-            publicId={image_url}
-            creator={creator}
-            tags={tags}
-            key={id}
-          />
-        ))}
-        {props.works.map(({ title, creator, tags, image_url, id }) => (
-          <WorkCard
-            title={title}
-            publicId={image_url}
-            creator={creator}
-            tags={tags}
-            key={id}
-          />
-        ))}
-      </Container>
-    </>
+        <Container>
+          {props.works.map(({ title, creator, tags, image_url, id }) => (
+            <WorkCard
+              title={title}
+              publicId={image_url}
+              creator={creator}
+              tags={tags}
+              key={id}
+            />
+          ))}
+        </Container>
+      </>
+    </PublicPageTemplate>
   );
 };
 
