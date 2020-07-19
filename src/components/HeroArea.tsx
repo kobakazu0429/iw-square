@@ -6,6 +6,8 @@ interface Props {
   backgroundImage: string;
 }
 
+export const HERO_AREA_HEIGHT = 450;
+
 export const HeroArea: FC<Props> = ({ text, backgroundImage }) => {
   return (
     <>
@@ -27,7 +29,7 @@ const StyledHeroArea = styled.div<{ backgroundImage: string }>`
   justify-content: center;
   align-items: center;
   background-image: url(${({ backgroundImage }) => backgroundImage});
-  height: 450px;
+  height: ${HERO_AREA_HEIGHT}px;
   h1 {
     font-size: 120px;
     color: #fff;

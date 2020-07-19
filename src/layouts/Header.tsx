@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import Link from "next/link";
 import styled from "styled-components";
+import { createCloudinaryUrl } from "../cloudinary/util";
 // import { BarsIcon } from "../icons/Bars";
-
 const routes = [
   {
     path: "/",
@@ -56,11 +56,18 @@ const Links: FC = () => (
 //   );
 // };
 
+const HEADER_HEIGHT = 60;
+
 export const Header = () => (
   <HeaderStyle>
     <Link href="/">
       <LogoArea>
-        <Logo src="/images/logo.jpg" />
+        <Logo
+          src={createCloudinaryUrl({
+            height: HEADER_HEIGHT,
+            publicId: "logo_iwicqa",
+          })}
+        />
         <BrandText>呉高専IWスクエア</BrandText>
       </LogoArea>
     </Link>
@@ -73,12 +80,10 @@ export const Header = () => (
   </HeaderStyle>
 );
 
-const height = `60px`;
-
 const HeaderStyle = styled.header`
   width: 100%;
-  height: ${height};
-  line-height: ${height};
+  height: ${HEADER_HEIGHT}px;
+  line-height: ${HEADER_HEIGHT}px;
   vertical-align: middle;
   display: flex;
 `;
@@ -90,8 +95,8 @@ const LogoArea = styled.a`
 `;
 
 const Logo = styled.img`
-  height: ${height};
-  width: ${height};
+  height: ${HEADER_HEIGHT}px;
+  width: ${HEADER_HEIGHT}px;
 `;
 
 const BrandText = styled.div`

@@ -9,7 +9,7 @@ import { WorkCard } from "../components/WorkCard";
 // import { MobileWorkCard } from "../components/MobileWorkCard";
 // import { TextField } from "../components/TextField";
 // import { Tag } from "../components/Tag";
-import { HeroArea } from "../components/HeroArea";
+import { HeroArea, HERO_AREA_HEIGHT } from "../components/HeroArea";
 import { createCloudinaryUrl } from "../cloudinary/util";
 
 // interface WorksResponse {
@@ -36,7 +36,7 @@ interface ServerSideProps {
 type Props = ServerSideProps;
 
 const HERO_AREA_IMAGE_PATH = createCloudinaryUrl({
-  height: 450,
+  height: HERO_AREA_HEIGHT,
   publicId: "works_vrmvat.jpg",
 });
 
