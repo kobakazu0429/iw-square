@@ -15,7 +15,7 @@ export interface Theme {
 
 const theme: Theme = {
   color: {
-    brand: "#0F4C81",
+    brand: "#0055A9",
     text: {
       primary: "#212121",
       secondary: "#fefefe",
