@@ -1,5 +1,6 @@
 import React from "react";
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
+import Head from "next/head";
 import styled from "styled-components";
 import { ParsedUrlQuery } from "querystring";
 import { worksClient } from "../microcms/works";
@@ -101,6 +102,9 @@ export default (props: Props) => {
 
   return (
     <>
+      <Head>
+        <title>インキュベーションスクエア - Works</title>
+      </Head>
       <Header />
       <HeroArea text="Works" backgroundImage={HERO_AREA_IMAGE_PATH} />
 

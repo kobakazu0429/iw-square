@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
 import { Divider } from "semantic-ui-react";
 import { AdminContainer } from "../../components/admin/Container";
@@ -18,16 +19,21 @@ interface Props extends ServerSideProps {}
 // eslint-disable-next-line react/display-name
 export default (props: Props) => {
   return (
-    <AdminContainer>
-      <div>
-        <h1>tags</h1>
-        <AdminMessage />
-        <Divider />
-        <AddTagForm />
-        <Divider />
-        <TagsTable tags={props.tags} />
-      </div>
-    </AdminContainer>
+    <>
+      <Head>
+        <title>インキュベーションスクエア - Admin Creators</title>
+      </Head>
+      <AdminContainer>
+        <div>
+          <h1>tags</h1>
+          <AdminMessage />
+          <Divider />
+          <AddTagForm />
+          <Divider />
+          <TagsTable tags={props.tags} />
+        </div>
+      </AdminContainer>
+    </>
   );
 };
 

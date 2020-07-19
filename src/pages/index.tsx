@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import styled from "styled-components";
 import { Header } from "../layouts/Header";
 import { createCloudinaryUrl } from "../cloudinary/util";
@@ -7,6 +8,9 @@ import { createCloudinaryUrl } from "../cloudinary/util";
 export default () => {
   return (
     <>
+      <Head>
+        <title>インキュベーションスクエア</title>
+      </Head>
       <Header />
       <Container>
         <HeroArea>
