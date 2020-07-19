@@ -1,5 +1,6 @@
 import React from "react";
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
+import Head from "next/head";
 import styled from "styled-components";
 import { creatorsClient } from "../microcms/creators";
 import { Creator as CreatorType } from "../microcms/type";
@@ -23,6 +24,9 @@ const HERO_AREA_IMAGE_PATH = createCloudinaryUrl({
 export default (props: Props) => {
   return (
     <>
+      <Head>
+        <title>インキュベーションスクエア - Creators</title>
+      </Head>
       <Header />
       <HeroArea text="Creators" backgroundImage={HERO_AREA_IMAGE_PATH} />
       <Container>

@@ -12,7 +12,7 @@ interface Props {
 export const Creator: FC<Props> = ({ iconPublicId, name, skills }) => {
   return (
     <Wrapper>
-      <Avator publicId={iconPublicId}>
+      <Avator publicId={iconPublicId} alt={name}>
         <Transformation crop="fill" height="200" width="200" quality="auto" />
       </Avator>
       <Content>

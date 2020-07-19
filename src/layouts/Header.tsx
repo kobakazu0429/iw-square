@@ -67,6 +67,7 @@ export const Header = () => (
             height: HEADER_HEIGHT,
             publicId: "logo_iwicqa",
           })}
+          alt="ロゴ画像"
         />
         <BrandText>呉高専IWスクエア</BrandText>
       </LogoArea>
@@ -100,7 +101,7 @@ const Logo = styled.img`
 `;
 
 const BrandText = styled.div`
-  color: ${({ theme }) => theme.color.brand};
+  color: ${({ theme }) => theme.color.text.primary};
   font-size: 1.5rem;
   text-align: left;
   vertical-align: middle;
@@ -119,12 +120,29 @@ const LinkWrapper = styled.div`
 
 const PageLink = styled.a`
   &:visited {
-    color: ${({ theme }) => theme.color.brand};
+    color: ${({ theme }) => theme.color.text.primary};
   }
   &:hover {
-    color: #f38d00;
+    color: ${({ theme }) => theme.color.text.primary};
   }
+  &::after {
+    position: absolute;
+    border-bottom: solid 2px ${({ theme }) => theme.color.text.primary};
+    bottom: 15px;
+    content: "";
+    display: block;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    width: 0;
+  }
+  &:hover::after {
+    width: 100%;
+  }
+  position: relative;
+  display: block;
+  text-decoration: none;
   cursor: pointer;
+  color: ${({ theme }) => theme.color.text.primary};
 `;
 
 // const MobileNav = styled.nav`
