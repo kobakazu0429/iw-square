@@ -67,7 +67,9 @@ if (
   !process.env.NEXT_PUBLIC_MICROCMS_API_KEY ||
   !process.env.NEXT_PUBLIC_MICROCMS_WRITE_API_KEY
 ) {
-  throw Error("not set microcms config to env");
+  throw Error(`not set microcms config to env
+${process.env.NEXT_PUBLIC_MICROCMS_URL}
+${process.env.NEXT_PUBLIC_MICROCMS_API_KEY}`);
 }
 
 export const restClient = new MicroCMSRestClient({

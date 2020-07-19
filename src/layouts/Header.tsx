@@ -124,6 +124,7 @@ const PageLink = styled.a`
   &:hover {
     color: #f38d00;
   }
+  cursor: pointer;
 `;
 
 // const MobileNav = styled.nav`
