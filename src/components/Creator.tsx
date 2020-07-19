@@ -13,7 +13,7 @@ export const Creator: FC<Props> = ({ iconPublicId, name, skills }) => {
   return (
     <Wrapper>
       <Avator publicId={iconPublicId}>
-        <Transformation crop="fill" height="200" width="200" />
+        <Transformation crop="fill" height="200" width="200" quality="auto" />
       </Avator>
       <Content>
         <Line>{name}</Line>

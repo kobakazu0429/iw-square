@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Header } from "../layouts/Header";
+import { createCloudinaryUrl } from "../cloudinary/util";
 
 // eslint-disable-next-line react/display-name
 export default () => {
@@ -9,7 +10,11 @@ export default () => {
       <Header />
       <Container>
         <HeroArea>
-          <HeroImg src="/images/safe-is-first.jpg" />
+          <HeroImg
+            src={createCloudinaryUrl({
+              publicId: "safe-is-first_tcgr8w",
+            })}
+          />
         </HeroArea>
       </Container>
     </>

@@ -5,7 +5,8 @@ import { creatorsClient } from "../microcms/creators";
 import { Creator as CreatorType } from "../microcms/type";
 import { Header } from "../layouts/Header";
 import { Creator } from "../components/Creator";
-import { HeroArea } from "../components/HeroArea";
+import { HeroArea, HERO_AREA_HEIGHT } from "../components/HeroArea";
+import { createCloudinaryUrl } from "../cloudinary/util";
 
 interface ServerSideProps {
   creators: CreatorType[];
@@ -13,12 +14,17 @@ interface ServerSideProps {
 
 type Props = ServerSideProps;
 
+const HERO_AREA_IMAGE_PATH = createCloudinaryUrl({
+  height: HERO_AREA_HEIGHT,
+  publicId: "creators_wacofe",
+});
+
 // eslint-disable-next-line react/display-name
 export default (props: Props) => {
   return (
     <>
       <Header />
-      <HeroArea text="Creators" backgroundImage="images/creators.jpg" />
+      <HeroArea text="Creators" backgroundImage={HERO_AREA_IMAGE_PATH} />
       <Container>
         {props.creators.map(({ id, name, icon }) => (
           <Creator name={name} skills={[]} iconPublicId={icon} key={id} />
