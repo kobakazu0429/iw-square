@@ -950,10 +950,17 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.8.4":
   version "7.10.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.3.tgz#670d002655a7c366540c67f6fd3342cd09500364"
   integrity sha512-RzGO0RLSdokm9Ipe/YD+7ww8X2Ro79qiXZF3HU9ljrM+qnJmH1Vqth+hbiQZy761LnMJTMitHDuKVYTk3k4dLw==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.5.5", "@babel/runtime@^7.8.7":
+  version "7.10.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.5.tgz#303d8bd440ecd5a491eae6117fd3367698674c5c"
+  integrity sha512-otddXKhdNn7d0ptoFRHtMLa8LqDxLYwTjB4nYgM1yy5N6gU/MUf8zqyyLltCH3yAVitBzmwK4us+DD0l/MauAg==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -2148,17 +2155,17 @@ clone-deep@^4.0.1:
     kind-of "^6.0.2"
     shallow-clone "^3.0.0"
 
-cloudinary-core@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.9.0.tgz#ca225d671faafea5a839004210226c64668bfdde"
-  integrity sha512-PvnRSb9Hk6myk6Ai59GonCRC3OsbVKcoARTK9sl+lZ/CMnwOV0SLkx21JcjehZ2CqUe1hVy23axEOyMdCBRicA==
+cloudinary-core@^2.10.3:
+  version "2.10.3"
+  resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.10.3.tgz#57706cf966bc627706ad8e1ee78db478ea69a6c5"
+  integrity sha512-uI7jASEcfjYBdoTb2uj4wgTB0cWPDwrQV4paYFOgEdU22z74eeJ1zI83ew2kuNnXBnbuPZFt310H329UfiHG2w==
 
 cloudinary-react@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/cloudinary-react/-/cloudinary-react-1.5.1.tgz#35c9d21fc77ece3185f13896feb84ba88c8fa63c"
-  integrity sha512-9PlLQqFqP/w+9Hg3ugE2kdXmbXz0IvCWdbh1Zt0a45rveg7x0u6ZYFvUIN5dc3XksPqn6GJAs6D8/AgwipUKOA==
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/cloudinary-react/-/cloudinary-react-1.6.2.tgz#c3266dbb33fdb661dcb1498388b2b1d87b61f144"
+  integrity sha512-9wk37NAGzjMLt0SF9ftOcbeoUaJATH9iaMc8DCUwMq+looOgtWoMuY9W/5rJo559oGK+48cNBUXnT+1Ft9SyKg==
   dependencies:
-    cloudinary-core "^2.9.0"
+    cloudinary-core "^2.10.3"
     prop-types "^15.6.2"
 
 clsx@^1.0.4:
@@ -2586,10 +2593,15 @@ csso@^4.0.2:
   dependencies:
     css-tree "1.0.0-alpha.39"
 
-csstype@^2.2.0, csstype@^2.6.7:
+csstype@^2.2.0:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.10.tgz#e63af50e66d7c266edb6b32909cfd0aabe03928b"
   integrity sha512-D34BqZU4cIlMCY93rZHbrq9pjTAQJ3U8S8rfBqjwHxkGPThWFjzZDQpgMJY0QViLxth6ZKYiwFBo14RdN44U/w==
+
+csstype@^2.6.7:
+  version "2.6.11"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.11.tgz#452f4d024149ecf260a852b025e36562a253ffc5"
+  integrity sha512-l8YyEC9NBkSm783PFTvh0FmJy7s5pFKrDp49ZL7zBGX3fWkO+N4EEyan1qqp8cwPLDcD0OSdyY6hAMoxp34JFw==
 
 cyclist@^1.0.1:
   version "1.0.1"
@@ -2617,9 +2629,9 @@ data-uri-to-buffer@3.0.0:
     buffer-from "^1.1.1"
 
 dayjs@^1.8.28:
-  version "1.8.28"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.28.tgz#37aa6201df483d089645cb6c8f6cef6f0c4dbc07"
-  integrity sha512-ccnYgKC0/hPSGXxj7Ju6AV/BP4HUkXC2u15mikXT5mX9YorEaoi1bEKOmAqdkJHN4EEkmAf97SpH66Try5Mbeg==
+  version "1.8.29"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.29.tgz#5d23e341de6bfbd206c01136d2fb0f01877820f5"
+  integrity sha512-Vm6teig8ZWK7rH/lxzVGxZJCljPdmUr6q/3f4fr5F0VWNGVkZEjZOQJsAN8hUHUqn+NK4XHNEpJZS1MwLyDcLw==
 
 debug@=3.1.0:
   version "3.1.0"
@@ -5472,9 +5484,9 @@ react-refresh@0.8.3:
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
 react-toastify@^6.0.6:
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-6.0.6.tgz#7409ef8e89d12492308a8e561317031b5d90615e"
-  integrity sha512-NdHiMhj76Z877kZlXuelVfJONslvpmDTL95FVAoBy2kkU75hiqR5+pu1GdJZfRWPhen9ecdb58d3HmefaJ06Yw==
+  version "6.0.8"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-6.0.8.tgz#84625d81d0fd01902a7f4c6f317eb074cb3bba67"
+  integrity sha512-NSqCNwv+C4IfR+c92PFZiNyeBwOJvigrP2bcRi2f6Hg3WqcHhEHOknbSQOs9QDFuqUjmK3SOrdvScQ3z63ifXg==
   dependencies:
     classnames "^2.2.6"
     prop-types "^15.7.2"
@@ -6524,10 +6536,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@3.5.2:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.2.tgz#a09e1dc69bc9551cadf17dba10ee42cf55e5d56c"
-  integrity sha512-7KxJovlYhTX5RaRbUdkAXN1KUZ8PwWlTzQdHV6xNqvuFOs7+WBo10TQUqT19Q/Jz2hk5v9TQDIhyLhhJY4p5AA==
+typescript@3.9.7:
+  version "3.9.7"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
+  integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
