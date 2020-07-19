@@ -22,6 +22,7 @@ export const WorkCard: FC<Props> = ({ publicId, title, creator, tags }) => {
         <Img
           ref={ref}
           data-src={createCloudinaryUrl({ height: IMAGE_HEIGHT, publicId })}
+          alt={`${title} / ${creator}`}
         />
         {hasLoaded && (
           <Content>
