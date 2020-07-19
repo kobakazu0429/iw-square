@@ -87,6 +87,7 @@ const HeaderStyle = styled.header`
   line-height: ${HEADER_HEIGHT}px;
   vertical-align: middle;
   display: flex;
+  border-bottom: 1px solid ${({ theme }) => theme.color.divider};
 `;
 
 const LogoArea = styled.a`
@@ -96,8 +97,8 @@ const LogoArea = styled.a`
 `;
 
 const Logo = styled.img`
-  height: ${HEADER_HEIGHT}px;
-  width: ${HEADER_HEIGHT}px;
+  height: ${HEADER_HEIGHT - 1}px;
+  width: ${HEADER_HEIGHT - 1}px;
 `;
 
 const BrandText = styled.div`
