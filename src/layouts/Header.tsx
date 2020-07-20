@@ -30,32 +30,6 @@ const Links: FC = () => (
   </>
 );
 
-// const Mobile: FC = () => {
-//   const [isOpen, setIsOpen] = useState(false);
-//   const openMenu = useCallback(() => setIsOpen(true), [isOpen]);
-//   const closeMenu = useCallback(() => setIsOpen(false), [isOpen]);
-//   return (
-//     <>
-//       <MobileNav onClick={openMenu}>
-//         <StyledMenu>
-//           <BarsIcon />
-//         </StyledMenu>
-//       </MobileNav>
-//       {isOpen && <FullScreenMenu closeMenu={closeMenu} />}
-//     </>
-//   );
-// };
-
-// const FullScreenMenu: FC<{ closeMenu: () => void }> = ({ closeMenu }) => {
-//   return (
-//     <FullScreen onClick={closeMenu}>
-//       <div>
-//         <Links />
-//       </div>
-//     </FullScreen>
-//   );
-// };
-
 const HEADER_HEIGHT = 60;
 
 export const Header = () => (
@@ -75,9 +49,6 @@ export const Header = () => (
     <PCNav>
       <Links />
     </PCNav>
-    {/* <MobileDesign>
-      <Mobile />
-    </MobileDesign> */}
   </HeaderStyle>
 );
 
@@ -87,6 +58,7 @@ const HeaderStyle = styled.header`
   line-height: ${HEADER_HEIGHT}px;
   vertical-align: middle;
   display: flex;
+  flex-shrink: 0;
   border-bottom: 1px solid ${({ theme }) => theme.color.divider};
 `;
 
@@ -107,6 +79,9 @@ const BrandText = styled.div`
   text-align: left;
   vertical-align: middle;
   margin-left: 15px;
+  @media only screen and (max-width: 480px) {
+    display: none;
+  }
 `;
 
 const PCNav = styled.nav`
@@ -145,30 +120,3 @@ const PageLink = styled.a`
   cursor: pointer;
   color: ${({ theme }) => theme.color.text.primary};
 `;
-
-// const MobileNav = styled.nav`
-//   width: ${height};
-// `;
-
-// const StyledMenu = styled.div`
-//   height: ${height};
-//   width: ${height};
-//   line-height: ${height};
-//   font-size: 30px;
-//   padding: 15px;
-//   padding-top: 5px;
-// `;
-
-// const FullScreen = styled.div`
-//   width: 100vw;
-//   height: auto;
-//   min-height: 100vh;
-//   position: fixed;
-//   z-index: 10000;
-//   background-color: rgba(255, 255, 255, 0.8);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   text-align: center;
-//   font-size: 24px;
-// `;
