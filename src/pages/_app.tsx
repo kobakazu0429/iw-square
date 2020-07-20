@@ -28,12 +28,12 @@ export default class MyApp extends App {
       <>
         <Normalize />
         <GlobalStyle />
-        <ToastContainer />
         <ThemeProvider themeName="default">
           <CloudinaryContext cloudName="iw-square">
             <Component {...pageProps} />
           </CloudinaryContext>
         </ThemeProvider>
+        <ToastContainer />
       </>
     );
   }

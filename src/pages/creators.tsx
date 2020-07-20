@@ -1,13 +1,12 @@
 import React from "react";
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
-import Head from "next/head";
 import styled from "styled-components";
 import { creatorsClient } from "../microcms/creators";
 import { Creator as CreatorType } from "../microcms/type";
-import { Header } from "../layouts/Header";
 import { Creator } from "../components/Creator";
 import { HeroArea, HERO_AREA_HEIGHT } from "../components/HeroArea";
 import { createCloudinaryUrl } from "../cloudinary/util";
+import { PublicPageTemplate } from "../layouts/PublicPageTemplate";
 
 interface ServerSideProps {
   creators: CreatorType[];
@@ -23,18 +22,16 @@ const HERO_AREA_IMAGE_PATH = createCloudinaryUrl({
 // eslint-disable-next-line react/display-name
 export default (props: Props) => {
   return (
-    <>
-      <Head>
-        <title>インキュベーションスクエア - Creators</title>
-      </Head>
-      <Header />
-      <HeroArea text="Creators" backgroundImage={HERO_AREA_IMAGE_PATH} />
-      <Container>
-        {props.creators.map(({ id, name, icon }) => (
-          <Creator name={name} skills={[]} iconPublicId={icon} key={id} />
-        ))}
-      </Container>
-    </>
+    <PublicPageTemplate pageTitle="インキュベーションスクエア - Creators">
+      <>
+        <HeroArea text="Creators" backgroundImage={HERO_AREA_IMAGE_PATH} />
+        <Container>
+          {props.creators.map(({ id, name, icon }) => (
+            <Creator name={name} skills={[]} iconPublicId={icon} key={id} />
+          ))}
+        </Container>
+      </>
+    </PublicPageTemplate>
   );
 };
 export async function getServerSideProps(
