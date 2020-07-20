@@ -66,6 +66,7 @@ const LogoArea = styled.a`
   display: flex;
   width: auto;
   margin-right: auto;
+  cursor: pointer;
 `;
 
 const Logo = styled.img`
