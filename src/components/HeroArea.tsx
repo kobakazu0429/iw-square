@@ -10,17 +10,9 @@ export const HERO_AREA_HEIGHT = 450;
 
 export const HeroArea: FC<Props> = ({ text, backgroundImage }) => {
   return (
-    <>
-      <StyledHeroArea backgroundImage={backgroundImage}>
-        <h1>{text}</h1>
-      </StyledHeroArea>
-
-      {/* <MobileDesign>
-        <StyledMobileHeroArea backgroundImage={backgroundImage}>
-          <h1>{text}</h1>
-        </StyledMobileHeroArea>
-      </MobileDesign> */}
-    </>
+    <StyledHeroArea backgroundImage={backgroundImage}>
+      <h1>{text}</h1>
+    </StyledHeroArea>
   );
 };
 
@@ -37,9 +29,6 @@ const StyledHeroArea = styled.div<{ backgroundImage: string }>`
   }
 
   @media only screen and (max-width: 480px) {
-    height: 90px;
-    h1 {
-      font-size: 40px;
-    }
+    display: none;
   }
 `;
