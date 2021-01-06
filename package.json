@@ -8,7 +8,7 @@
     "lint": "eslint --ext .ts,.tsx ./src --fix"
   },
   "dependencies": {
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "cloudinary-react": "1.6.2",
     "dayjs": "1.8.29",
     "next": "9.4.4",
